@@ -1,0 +1,36 @@
+<html>
+    <style>
+        button {
+            background-color: black;
+            color: white;
+            margin: 3px;
+            height: 180px;
+            width: 80px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: darkgray;
+            transition: 0.2s all ease-in-out;
+        }
+    </style>
+    <body>
+        <h3>MYPIANO</h3>
+        <div id="note"></div>
+
+        <script>
+            const chords = ["a", "c", "d", "e", "f"]
+            const note = document.getElementById("note")
+
+            chords.forEach(chord => {
+                const button = document.createElement("button")
+                button.innerText = chord
+                button.addEventListener("click", () => {
+                    const sound = new Audio(`/assets/${chord}.wav`)
+                    sound.play()
+                })
+                note.appendChild(button)
+            })
+        </script>
+    </body>
+</html>
